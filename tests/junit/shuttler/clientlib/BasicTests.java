@@ -20,6 +20,7 @@ import org.junit.Test;
 import com.ambientic.shuttler.ShuttlerService;
 import com.ambientic.shuttler.ShuttlerServiceImpl;
 import com.ambientic.shuttler.data.Agency;
+import com.ambientic.shuttler.data.PositionInfo;
 import com.ambientic.shuttler.data.ShuttleInfo;
 import com.ambientic.shuttler.data.StopInfo;
 
@@ -509,110 +510,110 @@ public class BasicTests {
 		}
 
 	}
+
 	//
-	// //
-	// //
-	// @Test
-	// public void testUpdatePosition() {
-	// String[] stopids = null;
-	// String[] routeIds = null;
-	// ShuttleInfo[] shuttles = null;
 	//
-	// try {
-	// stopids = service.getNearbyStopIds(2.257, 48.847);
-	// assertNotNull(stopids);
-	// assertTrue(stopids.length == 3);
-	//
-	// } catch (IOException e) {
-	// fail();
-	// }
-	//
-	// for (String stopid : stopids) {
-	// assertNotNull(stopid);
-	//
-	// try {
-	// routeIds = service.getRouteIdsForStop(stopid);
-	// assertNotNull(routeIds);
-	// } catch (IOException e) {
-	// fail();
-	// }
-	//
-	// for (String routeid : routeIds) {
-	// assertNotNull(routeid);
-	//
-	// try {
-	// shuttles = service.getOngoingShuttles(routeid);
-	// } catch (IOException e) {
-	// fail();
-	// }
-	//
-	// for (ShuttleInfo shuttle : shuttles) {
-	// try {
-	// ok = service.enterShuttle(testId,
-	// shuttle.getShuttle_id());
-	// assertTrue(ok);
-	// } catch (IOException e) {
-	// fail();
-	// }
-	//
-	// PositionInfo position1 = new PositionInfo();
-	// position1.setAccur(0.1);
-	// position1.setAlt(1233);
-	// position1.setBearing(360);
-	// position1.setLat(0);
-	// position1.setLon(0);
-	// position1.setSpeed(10);
-	//
-	// try {
-	// ok = service.updatePosition(testId, position1);
-	// assertTrue(ok);
-	// } catch (IOException e) {
-	// fail();
-	// }
-	//
-	// try {
-	// ok = service.leaveShuttle(testId);
-	// assertTrue(ok);
-	// } catch (IOException e) {
-	// fail();
-	// }
-	//
-	// PositionInfo position2 = new PositionInfo();
-	// position2.setAccur(0.1);
-	// position2.setAlt(1233);
-	// position2.setBearing(360);
-	// position2.setLat(1);
-	// position2.setLon(1);
-	// position2.setSpeed(10);
-	//
-	// try {
-	// ok = service.updatePosition(testId, position2);
-	// assertTrue(ok);
-	// } catch (IOException e) {
-	// fail();
-	// }
-	//
-	// try {
-	// ShuttleInfo tmpshuttle = service.getShuttleInfo(shuttle
-	// .getShuttle_id());
-	// assertNotNull(tmpshuttle);
-	//
-	// PositionInfo position3 = tmpshuttle.getLastPosition();
-	// assertNotNull(position3);
-	//
-	// assertTrue(position3.getLat() == position1.getLat());
-	// assertFalse(position3.getLat() == position2.getLat());
-	//
-	// } catch (IOException e) {
-	// fail();
-	// }
-	//
-	// }
-	//
-	// }
-	//
-	// }
-	//
-	// }
+	@Test
+	public void testUpdatePosition() {
+		String[] stopids = null;
+		String[] routeIds = null;
+		ShuttleInfo[] shuttles = null;
+
+		try {
+			stopids = service.getNearbyStopIds(2.257, 48.847);
+			assertNotNull(stopids);
+			assertTrue(stopids.length == 3);
+
+		} catch (IOException e) {
+			fail();
+		}
+
+		for (String stopid : stopids) {
+			assertNotNull(stopid);
+
+			try {
+				routeIds = service.getRouteIdsForStop(stopid);
+				assertNotNull(routeIds);
+			} catch (IOException e) {
+				fail();
+			}
+
+			for (String routeid : routeIds) {
+				assertNotNull(routeid);
+
+				try {
+					shuttles = service.getOngoingShuttles(routeid);
+				} catch (IOException e) {
+					fail();
+				}
+
+				for (ShuttleInfo shuttle : shuttles) {
+					try {
+						ok = service.enterShuttle(testId,
+								shuttle.getShuttle_id());
+						assertTrue(ok);
+					} catch (IOException e) {
+						fail();
+					}
+
+					PositionInfo position1 = new PositionInfo();
+					position1.setAccur(0.1);
+					position1.setAlt(1233);
+					position1.setBearing(360);
+					position1.setLat(0);
+					position1.setLon(0);
+					position1.setSpeed(10);
+
+					try {
+						ok = service.updatePosition(testId, position1);
+						assertTrue(ok);
+					} catch (IOException e) {
+						fail();
+					}
+
+					try {
+						ok = service.leaveShuttle(testId);
+						assertTrue(ok);
+					} catch (IOException e) {
+						fail();
+					}
+
+					PositionInfo position2 = new PositionInfo();
+					position2.setAccur(0.1);
+					position2.setAlt(1233);
+					position2.setBearing(360);
+					position2.setLat(1);
+					position2.setLon(1);
+					position2.setSpeed(10);
+
+					try {
+						ok = service.updatePosition(testId, position2);
+						assertFalse(ok);
+					} catch (IOException e) {
+						fail();
+					}
+
+					try {
+						ShuttleInfo tmpshuttle = service.getShuttleInfo(shuttle
+								.getShuttle_id());
+						assertNotNull(tmpshuttle);
+
+						PositionInfo position3 = tmpshuttle.getLastPosition();
+						assertNotNull(position3);
+
+						assertTrue(position3.getLat() == position1.getLat());
+						assertFalse(position3.getLat() == position2.getLat());
+
+					} catch (IOException e) {
+						fail();
+					}
+
+				}
+
+			}
+
+		}
+
+	}
 
 }

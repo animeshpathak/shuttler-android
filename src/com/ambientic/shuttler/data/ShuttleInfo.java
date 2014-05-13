@@ -23,94 +23,37 @@ class StopTimeInfo {
 	Date actual_arrival;
 	Date actual_departure;
 
-	// public String getStop_id() {
-	// return stop_id;
-	// }
-	//
-	// public void setStop_id(String stop_id) {
-	// this.stop_id = stop_id;
-	// }
-	//
-	// public int getOrder() {
-	// return order;
-	// }
-	//
-	// public void setOrder(int order) {
-	// this.order = order;
-	// }
-	//
-	// public String getName() {
-	// return name;
-	// }
-	//
-	// public void setName(String name) {
-	// this.name = name;
-	// }
-	//
-	// public String getHeadsign() {
-	// return headsign;
-	// }
-	//
-	// public void setHeadsign(String headsign) {
-	// this.headsign = headsign;
-	// }
-	//
-	// public double getLat() {
-	// return lat;
-	// }
-	//
-	// public void setLat(double lat) {
-	// this.lat = lat;
-	// }
-	//
-	// public double getLon() {
-	// return lon;
-	// }
-	//
-	// public void setLon(double lon) {
-	// this.lon = lon;
-	// }
-	//
-	// public Date getExpected_arrival() {
-	// return expected_arrival;
-	// }
-	//
-	// public void setExpected_arrival(Date expected_arrival) {
-	// this.expected_arrival = expected_arrival;
-	// }
-	//
-	// public Date getExpected_departure() {
-	// return expected_departure;
-	// }
-	//
-	// public void setExpected_departure(Date expected_departure) {
-	// this.expected_departure = expected_departure;
-	// }
-	//
-	// public Date getActual_arrival() {
-	// return actual_arrival;
-	// }
-	//
-	// public void setActual_arrival(Date actual_arrival) {
-	// this.actual_arrival = actual_arrival;
-	// }
-	//
-	// public Date getActual_departure() {
-	// return actual_departure;
-	// }
-	//
-	// public void setActual_departure(Date actual_departure) {
-	// this.actual_departure = actual_departure;
-	// }
-}
+	public String getStop_id() {
+		return stop_id;
+	}
 
-class PositionInfo {
-	double lat;
-	double lon;
-	double bearing;
-	double alt;
-	double accur;
-	double speed;
+	public void setStop_id(String stop_id) {
+		this.stop_id = stop_id;
+	}
+
+	public int getOrder() {
+		return order;
+	}
+
+	public void setOrder(int order) {
+		this.order = order;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getHeadsign() {
+		return headsign;
+	}
+
+	public void setHeadsign(String headsign) {
+		this.headsign = headsign;
+	}
 
 	public double getLat() {
 		return lat;
@@ -128,36 +71,36 @@ class PositionInfo {
 		this.lon = lon;
 	}
 
-	public double getBearing() {
-		return bearing;
+	public Date getExpected_arrival() {
+		return expected_arrival;
 	}
 
-	public void setBearing(double bearing) {
-		this.bearing = bearing;
+	public void setExpected_arrival(Date expected_arrival) {
+		this.expected_arrival = expected_arrival;
 	}
 
-	public double getAlt() {
-		return alt;
+	public Date getExpected_departure() {
+		return expected_departure;
 	}
 
-	public void setAlt(double alt) {
-		this.alt = alt;
+	public void setExpected_departure(Date expected_departure) {
+		this.expected_departure = expected_departure;
 	}
 
-	public double getAccur() {
-		return accur;
+	public Date getActual_arrival() {
+		return actual_arrival;
 	}
 
-	public void setAccur(double accur) {
-		this.accur = accur;
+	public void setActual_arrival(Date actual_arrival) {
+		this.actual_arrival = actual_arrival;
 	}
 
-	public double getSpeed() {
-		return speed;
+	public Date getActual_departure() {
+		return actual_departure;
 	}
 
-	public void setSpeed(double speed) {
-		this.speed = speed;
+	public void setActual_departure(Date actual_departure) {
+		this.actual_departure = actual_departure;
 	}
 }
 
@@ -166,29 +109,29 @@ class ShapePoint {
 	double lon;
 	int order;
 
-	// public double getLat() {
-	// return lat;
-	// }
-	//
-	// public void setLat(double lat) {
-	// this.lat = lat;
-	// }
-	//
-	// public double getLon() {
-	// return lon;
-	// }
-	//
-	// public void setLon(double lon) {
-	// this.lon = lon;
-	// }
-	//
-	// public int getOrder() {
-	// return order;
-	// }
-	//
-	// public void setOrder(int order) {
-	// this.order = order;
-	// }
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+	public double getLon() {
+		return lon;
+	}
+
+	public void setLon(double lon) {
+		this.lon = lon;
+	}
+
+	public int getOrder() {
+		return order;
+	}
+
+	public void setOrder(int order) {
+		this.order = order;
+	}
 }
 
 class TripInfo {
@@ -263,29 +206,29 @@ class NotifiedPositionInfo {
 	Date date;
 	PositionInfo position;
 
-	// public String getNickname() {
-	// return nickname;
-	// }
-	//
-	// public void setNickname(String nickname) {
-	// this.nickname = nickname;
-	// }
-	//
-	// public Date getDate() {
-	// return date;
-	// }
-	//
-	// public void setDate(Date date) {
-	// this.date = date;
-	// }
-	//
-	// public PositionInfo getPosition() {
-	// return position;
-	// }
-	//
-	// public void setPosition(PositionInfo position) {
-	// this.position = position;
-	// }
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public PositionInfo getPosition() {
+		return position;
+	}
+
+	public void setPosition(PositionInfo position) {
+		this.position = position;
+	}
 }
 
 public class ShuttleInfo {

@@ -12,6 +12,7 @@ package com.ambientic.shuttler;
 import java.io.IOException;
 
 import com.ambientic.shuttler.data.Agency;
+import com.ambientic.shuttler.data.PositionInfo;
 import com.ambientic.shuttler.data.ShuttleInfo;
 import com.ambientic.shuttler.data.StopInfo;
 
@@ -153,7 +154,7 @@ public interface ShuttlerService {
 	 * @return
 	 * @throws IOException
 	 */
-	// public boolean updatePosition(String nickname, PositionInfo position)
-	// throws IOException;
+	public boolean updatePosition(String nickname, PositionInfo position)
+			throws IOException;
 
 }

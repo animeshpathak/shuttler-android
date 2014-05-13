@@ -17,6 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import com.ambientic.shuttler.data.Agency;
+import com.ambientic.shuttler.data.PositionInfo;
 import com.ambientic.shuttler.data.ShuttleInfo;
 import com.ambientic.shuttler.data.StopInfo;
 import com.google.gson.Gson;
@@ -257,25 +258,25 @@ public class ShuttlerServiceImpl implements ShuttlerService {
 		return shuttleInfos;
 	}
 
-	// @Override
-	// public boolean updatePosition(String nickname, PositionInfo position)
-	// throws IOException {
-	// String res;
-	//
-	// JsonObject jsonParam = new JsonObject();
-	// jsonParam.addProperty("nickname", nickname);
-	// jsonParam.addProperty("position", gson.toJson(position));
-	// res = sendJsonPostRequest(UPDATE_POSITION, jsonParam.toString());
-	//
-	// if (res == null) {
-	// throw new IOException("Unable to leave stop");
-	// }
-	//
-	// if (res.equals("true"))
-	// return true;
-	// else
-	// return false;
-	// }
+	@Override
+	public boolean updatePosition(String nickname, PositionInfo position)
+			throws IOException {
+		String res;
+
+		JsonObject jsonParam = new JsonObject();
+		jsonParam.addProperty("nickname", nickname);
+		jsonParam.addProperty("position", gson.toJson(position));
+		res = sendJsonPostRequest(UPDATE_POSITION, jsonParam.toString());
+
+		if (res == null) {
+			throw new IOException("Unable to leave stop");
+		}
+
+		if (res.equals("true"))
+			return true;
+		else
+			return false;
+	}
 
 	//
 	//
